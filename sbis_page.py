@@ -52,7 +52,7 @@ class SbisPage(BasePage):
         self.find_element(Locators.LOCATOR_REGION_SELECTION).click()
         time.sleep(1)
 
-    def verification_url(self, text):  # добавить проверку про кирилицу
+    def verification_url(self, text):
         return slugify(text) in self.get_url()
 
     def verification_title(self, text):
@@ -60,9 +60,6 @@ class SbisPage(BasePage):
 
     def get_web_installer(self):
         return self.find_element(Locators.LOCATOR_WEB_INSTALLER).text
-
-    def element_attribute(self, element, attribute):  # подумать как сделать данный метод
-        return element.get_attribute(attribute)
 
     def attribute_comparison(self, attribute):
         elements = self.find_elements(Locators.LOCATOR_WORKING_PHOTOS)

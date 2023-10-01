@@ -20,6 +20,9 @@ class BasePage:
     def find_elements(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator))
 
+    def element_attribute(self, element, attribute):
+        return element.get_attribute(attribute)
+
     def enter_to(self, locator, time=10):
         element = WebDriverWait(self.driver, time).until(EC.element_to_be_clickable(locator))
         try:
